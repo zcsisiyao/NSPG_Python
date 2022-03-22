@@ -66,11 +66,11 @@ def local_position(i, ps, dp, h):
     Move the patch position index to the difference image position index.
     """
     if i < ps:
-        local_i = list(range(0, int(1+np.floor((i+ps)/dp) * dp), dp))
+        local_i = list(range(0, int(np.floor((i+ps)/dp) * dp), dp))
     elif i > h-ps-1:
-        local_i = list(range(int(np.ceil((i-ps)/dp)*dp), int(1+np.floor(h/dp)*dp), dp))
+        local_i = list(range(int(np.ceil((i-ps)/dp)*dp), int(np.floor(h/dp)*dp), dp))
     else:
-        local_i = list(range(int(np.ceil((i-ps)/dp)*dp), int(1+np.floor((i+ps)/dp)*dp), dp))
+        local_i = list(range(int(np.ceil((i-ps)/dp)*dp), int(np.floor((i+ps)/dp)*dp), dp))
     return local_i
 
 def fuse_DI(fw, bw):
